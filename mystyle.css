@@ -1,0 +1,26 @@
+body {
+	padding: 40px 100px 100px;
+	background-color: #666;
+	color: white;
+}
+button {
+	margin: 5px;
+	background-color:#555;
+	color:white;
+}
+button:hover {
+	background-color:#222;
+}
+input {
+	background-color:#555;
+	color: white;
+}
+input:hover {
+	background-color:#222;
+}
+th {
+	text-align: right
+}
+p {
+	background-color: #333;
+}

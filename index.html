@@ -1,0 +1,71 @@
+<html>
+    <head>
+		<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+		<link rel="stylesheet" href="./mystyle.css" />
+    </head>
+    <body>
+		<h1>Password Generator</h1>
+		<form id='pass_form'>
+			<table>
+				<tr>
+					<th>
+						<label for="upper">Uppercase characters</label>
+					</th>
+					<td>
+						<input id="form-upper"type="number" min="0" max="9" value="3"></input>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="lower">Lowercase characters</label>
+					</th>
+					<td>
+						<input id="form-lower" type="number" min="0" max="9" value="3"></input>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="digits">Digit characters</label>
+					</th>
+					<td>
+						<input id="form-digit" type="number" min="0" max="9" value="3"></input>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="special">Special characters</label>
+					</th>
+					<td>
+						<input id="form-special" type="number" min="0" max="9" value="3"></input>
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="submit">Confirm</label>
+					</th>
+					<td>
+						<input id="submit-button" type="submit" value="Generate!">
+					</td>
+				</tr>
+			</table>
+		</form>
+		<p id="output">
+			Your password will appear here.
+		</p>
+		<button id="hide-button" onclick="password_generator.toggle_hide_password()" False>Toggle Hide/Show</button>
+		<button id="copy-button" onclick="password_generator.copy_password()">Copy to clipboard</button>
+		<py-script src="./password_generator.py"></py-script>
+		</py-script>
+		<script>
+			form_elem = document.getElementById('pass_form')
+			function handleFormSubmit(event) {
+				event.preventDefault();
+				console.log('Form submitted');
+				password_generator = pyscript.runtime.globals.get('PasswordGenerator')()
+				password_generator.run()
+			}
+			form_elem.addEventListener("submit", handleFormSubmit);
+		</script>
+    </body>
+
+</html>
